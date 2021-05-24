@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Mon compte</title>
+    <link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+	<link rel="stylesheet" href="https://sopham.fr/jee/css/mon-compte.css" media="screen">
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/jquery-1.9.1.min.js"></script>
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+   
+  </head>
+  <body class="u-body">
+  <header th:replace="header :: header"> </header>
+    <section class="u-align-center u-clearfix u-grey-15 u-valign-bottom u-section-2" id="sec-45f5">
+      <div class="u-expanded-width u-tabs u-tabs-1">
+        <ul class="u-tab-list u-unstyled" role="tablist">
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active-white u-button-style u-tab-link u-tab-link-1" id="link-tab-0da5" th:href="@{/reservations}" role="tab" aria-controls="tab-0da5" aria-selected="false">Mes réservations</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active-white u-button-style u-tab-link u-tab-link-2" id="link-tab-14b7" th:href="@{/billets}" role="tab" aria-controls="tab-14b7" aria-selected="false">Mes billets</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active u-active-white u-button-style u-tab-link u-tab-link-3" id="link-tab-2917" th:href="@{/moncompte}" role="tab" aria-controls="tab-2917" aria-selected="true">Modifier les informations de mon compte</a>
+          </li>
+        </ul>
+        <div class="u-tab-content">
+          <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-3" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">
+            <div class="u-container-layout u-container-layout-3">
+              <div class="u-form u-form-1">
+                <form th:action=@{/moncompte} th:object="${UserForm}" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" name="form">
+                  <div class="u-form-email u-form-group">
+                    <label for="name-6797" class="u-label">Modification du nom</label>
+                    <input type="text" placeholder="Entrez votre nom complet" id="name" name="name" th:value="${user.name}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="required">
+                  </div>
+                  <div class="u-form-email u-form-group">
+                    <label for="email-6797" class="u-label">Modifiez votre adresse e-mail</label>
+                    <input type="email" placeholder="exemple: jeandp@gmail.com" id="login" name="login" th:value="${user.email}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="required">
+                  </div>
+                  <div class="u-form-group u-form-name u-form-group-4">
+                    <label for="name-3fcf" class="u-label">Modifier votre mot de passe:</label>
+                    <input type="password" placeholder="Entrez votre mot de passe" id="password" name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="required">
+                  </div>
+                  <div class="u-align-center u-form-group u-form-submit">
+                    <input type="submit" class="u-active-custom-color-3 u-btn u-btn-submit u-button-style u-custom-color-2 u-hover-custom-color-1 u-btn-1" value="Valider les changements">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	<footer th:replace="footer :: footer"></footer>
+  </body>
+</html>

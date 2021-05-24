@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+	<link rel="stylesheet" href="https://sopham.fr/jee/css/details.css" media="screen">
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/jquery-1.9.1.min.js"></script>
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+  </head>
+  <body class="u-body">
+  <header th:replace="header :: header"> </header>
+    <section class="u-clearfix u-section-1" id="sec-bb68">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-expanded-width u-product u-product-1">
+          <div class="u-container-layout u-container-layout-1" >
+            <h3 class="u-align-center u-text u-text-2" th:text="${event.name}"></h3>
+            <img alt="" class="u-image u-image-default u-product-control u-image-1" data-image-width="1280" data-image-height="853" src="https://sopham.fr/jee/images/g209f3267cc5a6da3050a1f3b04bfc2070a5e3978b6f2113026becdac130d83a9e04227dfc78c8fccbfac15a297f28834ca3b4182f30e36ec009a68530ad391ac_1280.jpg">
+            <a th:href="@{/reserver/{id}(id=${event.id})}" th:if="${error_connect != true}" class="u-black u-border-2 u-border-black u-btn u-button-style u-hover-black u-product-control u-btn-1">Réserver</a>
+            <a th:href="@{/events/modifier/{id}(id=${event.id})}" th:if="${admin == 1}" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-product-control u-text-black u-text-hover-white u-btn-2">Modifier</a>
+            <p class="u-text u-text-3">
+              <span style="font-size: 1.25rem;">
+	              Type d'évenement: <span th:text="${event.type}"></span> <br>
+	              Date: <span th:text="${event.date}"></span> <br>
+	              Heure: <span th:text="${event.time}"></span><br>
+	              Lieu​: <span th:text="${event.place}"></span> <br><br>
+	              Prix: <span th:text="${event.price}"></span>€<br>
+              </span>      
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer th:replace="footer :: footer"></footer>
+  </body>
+</html>

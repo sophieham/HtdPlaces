@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Accueil</title>
+		<link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+		<link rel="stylesheet" href="https://sopham.fr/jee/css/index.css" media="screen">
+		<script class="u-script" type="text/javascript" src="https://sopham.fr/jee/jquery-1.9.1.min.js"></script>
+		<script class="u-script" type="text/javascript" src="https://sopham.fr/jee/nicepage.js"></script>
+		<link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+	</head>
+	<body class="u-body">
+	<header th:replace="header :: header"></header>
+	<section class="u-clearfix u-section-1" id="sec-9074">
+		<div class="u-clearfix u-sheet u-sheet-1">
+			<div class="u-align-center u-form">
+				 <a th:href="@{/events/ajout}" th:if="${admin == 1}"  class="u-black u-border-2 u-border-black u-btn u-button-style u-hover-black u-product-control u-btn-1" style="width:100%;">Ajouter un nouvel évenement</a>				
+			</div>
+		</div>
+	</section>
+	<section class="u-clearfix u-section-2" id="sec-7efb">
+		<div class="u-clearfix u-sheet u-sheet-1">
+			<div class="u-list u-list-1">
+				<div class="u-repeater u-repeater-1">
+					<div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-1" data-image-width="101" data-image-height="150" th:each="event : ${events}">
+						<div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
+							<h3 class="u-text u-text-1" th:text="${event.name}"></h3>
+								<p class="u-text u-text-2">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td>Lieu:</td>
+												<td th:text="${event.place}"></td>
+											</tr>
+											<tr>
+												<td>Type:</td>
+												<td th:text="${event.type}"></td>
+											</tr>
+											<tr>
+												<td>Date:</td>
+												<td th:text="${event.date}"></td>
+											</tr>
+										</tbody>
+									</table>
+								<a th:href="@{/events/{id}(id=${event.id})}" class="u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-palette-3-base u-radius-2 u-btn-1">En savoir plus </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer th:replace="footer :: footer"></footer>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Modifier un évenement</title>
+    <link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+	<link rel="stylesheet" href="https://sopham.fr/jee/css/event.css" media="screen">
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/jquery-1.9.1.min.js"></script>
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+  </head>
+  <body class="u-body">
+  <header th:replace="header :: header"> </header>
+    <section class="u-align-center u-clearfix u-section-1" id="sec-7ec1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-1">Modifier un évenement</h2>
+        <div class="u-form u-form-1">
+          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
+            <input type="hidden" id="siteId" name="siteId" value="383543">
+            <input type="hidden" id="pageId" name="pageId" value="391672">
+            <div class="u-form-group u-form-name">
+              <label for="nom" class="u-form-control u-label">Nom de l'évenement</label>
+              <input type="text" th:value="${event.name}" id="name" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-group u-form-name">
+              <label for="type" class="u-form-control u-label">Type d'évenement</label>
+              <input type="text" th:value="${event.type}" placeholder="Exemple: spectacle, concert, théâtre, one man show..." id="type" name="type" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-email u-form-group">
+              <label for="date" class="u-form-control u-label">Date (date actuelle: <span th:text="${event.date}"></span>)</label>
+              <input type="date" th:value="${event.date}" id="date" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+			<div class="u-form-group u-form-name">
+              <label for="heure" class="u-form-control u-label">Heure</label>
+              <input type="time" th:value="${event.time}" id="time" name="time" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-group u-form-name">
+              <label for="lieu" class="u-form-control u-label">Lieu</label>
+              <input type="text" th:value="${event.place}" placeholder="Entrez le l'adresse de l'évenement ici" id="place" name="place" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-form-group u-form-name">
+              <label for="prix" class="u-form-control u-label">Prix (en euro)</label>
+              <input type="number" th:value="${event.price}" placeholder="Entrez le prix d'achat du billet ici" id="price" name="price" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit">
+              <input type="submit" class="u-btn u-btn-submit u-button-style" value="Submit">
+              <a th:href="@{../supprimer/{id}(id=${event.id})}" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-text-black u-text-hover-white u-btn-2">Supprimer/Annuler l'évenement</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer th:replace="footer :: footer"></footer>
+  </body>
+</html>

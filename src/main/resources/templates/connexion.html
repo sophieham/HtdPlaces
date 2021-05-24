@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Se connecter</title>
+    <link rel="stylesheet" href="https://sopham.fr/jee/css/nicepage.css" media="screen">
+	<link rel="stylesheet" href="https://sopham.fr/jee/css/connexion.css" media="screen">
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/jquery-1.9.1.min.js"></script>
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+  </head>
+  <body class="u-body">
+    <section class="u-clearfix u-image u-section-1" id="carousel_c880" data-image-width="1280" data-image-height="853">
+      <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
+        <div class="u-container-style u-grey-90 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Connexion</h2>
+            <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
+                <form th:action="@{/connexion}" th:object="${loginForm}" method="post">
+	                <div class="u-form-email u-form-group u-form-group-1">
+	                    <input type="text" id="login_auth" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white" name="login" placeholder="Votre adresse e-mail">
+	                </div>
+	                <div class="u-form-email u-form-group u-form-group-2">
+	                    <input type="password" id="password_auth" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white" name="password" placeholder="Votre mot de passe">
+					</div> 
+					<div class="u-form-email u-form-group u-form-group-2">                   
+	                    <input type="submit" class="u-active-palette-5-dark-2 u-btn u-btn-submit u-button-style u-custom-color-2 u-hover-custom-color-1 u-btn-1" value="Se connecter">
+	                </div>
+                </form>
+            </div>
+            <form action="#" th:action="@{/inscription}" method="get">
+            <h3 class="u-align-center u-text u-text-3">
+              <a th:href="@{/inscription}" class="u-text-white" type="submit" >Vous n'avez pas de compte? Inscrivez-vous!</a>
+            </h3>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+   <footer th:replace="footer :: footer"></footer>
+  </body>
+</html>

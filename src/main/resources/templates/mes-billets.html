@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Mon compte</title>
+    <link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+	<link rel="stylesheet" href="https://sopham.fr/jee/css/mon-compte.css" media="screen">
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/jquery-1.9.1.min.js"></script>
+    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+  </head>
+  <body class="u-body">
+ <header th:replace="header :: header"> </header>
+    <section class="u-align-center u-clearfix u-grey-15 u-valign-bottom u-section-2" id="sec-45f5">
+      <div class="u-expanded-width u-tabs u-tabs-1">
+        <ul class="u-tab-list u-unstyled" role="tablist">
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active-white u-button-style u-tab-link u-tab-link-3" id="link-tab-0da5" th:href="@{/reservations}" role="tab" aria-controls="tab-0da5" aria-selected="false">Mes réservations</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a class="active u-active-white u-button-style u-tab-link u-tab-link-2" id="link-tab-14b7" th:href="@{/billets}" role="tab" aria-controls="tab-14b7" aria-selected="true">Mes billets</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active-white u-button-style u-tab-link u-tab-link-3" id="link-tab-2917" th:href="@{/moncompte}" role="tab" aria-controls="tab-2917" aria-selected="false">Modifier les informations de mon compte</a>
+          </li>
+        </ul>
+        <div class="u-tab-content">
+          <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-2" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
+            <div class="u-container-layout u-valign-top u-container-layout-2">
+                <section class="u-clearfix u-section-1" id="sec-022a">
+                    <div class="u-clearfix u-sheet u-sheet-1">
+                        <div class="u-list u-list-1">
+                            <div class="u-repeater u-repeater-1">
+                                <div th:each="ticket : ${tickets}" class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-1" data-image-width="1280" data-image-height="853">
+                                    <div class="u-container-layout u-similar-container u-container-layout-1">
+                                         <h3 class="u-text u-text-3" th:text="${ticket.event.name}"></h3>
+                                        <h5>Au nom de : <span th:text="${ticket.name}"></span></h5>
+                                        <p class="u-text u-text-4">Payé le: <span th:text="${ticket.billingDate}"></span>
+                                            <br>
+                                            <a th:href="@{/events/{id}(id=${ticket.event.id})}" class="u-btn u-btn-round u-button-style u-custom-color-4 u-hover-custom-color-6 u-radius-50 u-btn-1">details</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	<footer th:replace="footer :: footer"></footer>
+  </body>
+</html>

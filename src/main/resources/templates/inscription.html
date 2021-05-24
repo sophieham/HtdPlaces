@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="utf-8">
+	    <title>Inscription</title>
+	    <link rel="stylesheet" href="https://sopham.fr/jee/css/header.css" media="screen">
+	    <link rel="stylesheet" href="https://sopham.fr/jee/css/deconnexion.css" media="screen">
+	    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/jquery-1.9.1.min.js"></script>
+	    <script class="u-script" type="text/javascript" src="https://sopham.fr/jee/js/nicepage.js"></script>
+	    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+	</head>
+	<body class="u-body">
+	<header th:replace="header :: header"> </header>
+	<section class="u-clearfix u-palette-5-base u-section-2" id="carousel_0e93">
+	    <div class="u-clearfix u-sheet u-sheet-1">
+	        <div class="u-align-center u-container-style u-expanded-width-xs u-group u-white u-group-1">
+	            <div class="u-container-layout u-container-layout-1">
+	                <h1 class="u-text u-text-1">
+	                    <span style="font-size: 2.25rem;">Formulaire d'inscription</span>
+	                    <br>
+	                </h1>
+	                <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
+	                    <form th:action=@{/inscription}  th:object="${userForm}" method="post" class="u-clearfix u-form-spacing-28 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
+	                        <div class="u-form-group u-form-name u-form-group-1">
+	                            <label for="name" class="u-label" wfd-invisible="true">Nom complet:</label>
+	                            <input type="text" placeholder="Entrez votre nom et prénom" id="name" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white" required="">
+	                        </div>
+	                        <div class="u-form-email u-form-group u-form-group-2">
+	                            <label for="email" class="u-label" wfd-invisible="true">Adresse e-mail:</label>
+	                            <input type="email" placeholder="exemple: jackd@gmail.com" id="login" name="login" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white" required="">
+	                        </div>
+	                        <div class="u-form-group u-form-name u-form-group-1">
+	                            <label for="mdp" class="u-label" wfd-invisible="true">Mot de passe:</label>
+	                            <input type="password" placeholder="Entrez votre mot de passe" id="password" name="password" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white" required="">
+	                        </div>
+	
+	                        <div class="u-align-center u-form-group u-form-submit u-form-group-3">
+	                            <input type="submit" class="u-border-2 u-border-black u-btn u-btn-submit u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1" value="S'inscrire">
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	        <img src="https://sopham.fr/jee/images/g00980b3ef7e765199c0e3084d7472742922674c28a57ccccaf9b200b4d276d8bc0a4b64742baaa431a464d381273fe076a1c1cd5fd28da56e489a793aa0dc099_1280.jpg" alt="" class="u-expanded-width-xs u-image u-image-default u-image-1" data-image-width="1280" data-image-height="905">
+	    </div>
+	</section>
+	<footer th:replace="footer :: footer"></footer>
+	</body>
+</html>
